@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+    overflow: hidden;
+}
+
+.subcanvas{
+    background-color: transparent;
+    position: fixed;
+}
