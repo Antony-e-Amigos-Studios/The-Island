@@ -9,7 +9,7 @@ Infelizmente a maior parte da nossa equipe de profissionais **(mentira)** desani
 Agora para deixar um melhor entendimento faremos uma nota de atualização explicando tudo que mudou, como usar e etc.
 
 ## Oque mudou?
-Alguma coisas forão adicionadas no nosso jogo, a primeira coisa q mudou foi o nome do jogo agora ele se chama **The-Island**, mudamos o nome para um mais adequado ao game.
+Alguma coisas forão adicionadas no nosso jogo, a primeira coisa q mudou foi o nome do jogo agora ele se chama **The-Island**, mudamos o nome para um mais adequado ao game (Mentira toninho adventures era muito melhor retire o que disse agora).
 
 Adicionamos novos elemento e componentes para a criação de menus e de interfacese, e com esses novos elementos criamos uma **Tela de carregamento** eu uma Interface para a **Vida** e para os **Slots**
 
