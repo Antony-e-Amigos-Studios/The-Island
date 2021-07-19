@@ -1,9 +1,13 @@
 /**
  * Antony Game Engine
- * @author Magoninho and Tsukiiii
+ * @author Magoninho, Tsuki, Anonimo and Moises Madeira
  * @copyright Copyright (c) 2021 Antony e Amigos Studios. All rights reserved
  */
 import { NonEntityGameObject } from "./GameObject.js";
+
+/*
+NOTE: Read 'this.entities[sceneName].entity[x]' as 'FROM entities AT sceneName SELECT entity x'
+*/
 
 export default class Game extends NonEntityGameObject {
     constructor() {

@@ -1,10 +1,10 @@
 import { GameObject } from "../Engine/GameObject.js"
-import { SpriteSheetAnimator, loadSprite, loadSprites } from "../Engine/Animator.js";
-import BasicMovement from "../Engine/miscComponents.js";
+import { SpriteSheetAnimator, loadSprite } from "../Engine/Animator.js";
+import { BasicMovement } from "../Engine/miscComponents.js";
 import { Audio, AudioPlayer } from '../Engine/Audio.js'
 
 export default class Player extends GameObject {
-    constructor(x, y, w, h) {
+    constructor(x, y, w, h, game) {
         super(x, y, w, h);
 
         this.add_component("spriteanimator", new SpriteSheetAnimator(4, 3));
@@ -29,6 +29,7 @@ export default class Player extends GameObject {
         this.get("spriteanimator").set_velocity(10);
         this.get("spriteanimator").play();
         this.add_component('movement', new BasicMovement(this, 4, ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"]))
+        this.add_component('ysort', new Ysort(this, game))
 
         this.get("audioplayer").on_stop_callback(() => {
             const mov = this.get("movement");
@@ -39,7 +40,7 @@ export default class Player extends GameObject {
         });
     }
     
-    update(game) {
+    update(_game) {
         if (this.get("movement")) {
             let mov = this.get("movement");
             if (mov.xspd > 0) {
