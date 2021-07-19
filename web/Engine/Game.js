@@ -19,8 +19,8 @@ export default class Game extends NonEntityGameObject {
         this.scene = "";
         this.canvas = document.createElement("canvas");
         this.ctx = this.canvas.getContext("2d");
-        this.width = window.innerWidth;
-        this.height = window.innerHeight;
+        this.width = innerWidth;
+        this.height = innerHeight;
         this.canvas.width = this.width;
         this.canvas.height = this.height;
         this.canvas.onload = () => {console.log('Opa')}

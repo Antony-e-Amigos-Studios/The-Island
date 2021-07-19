@@ -10,7 +10,7 @@ class Window{
             console.log('Create Window')
             this.createWindow()
             this.win.loadFile(url)
-            this.win.webContents.openDevTools() //Debug
+            // this.win.webContents.openDevTools() //Debug
         }).then(()=>{
             this.win.on('ready-to-show', ()=>{
                 this.win.show()

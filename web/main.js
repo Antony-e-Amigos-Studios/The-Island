@@ -1,6 +1,6 @@
 import Game from "./Engine/Game.js";
 import Player from "./Scripts/Player.js";
-import { SpriteSheetAnimator, loadSprite, loadSprites, onLoadAllSprites } from "./Engine/Animator.js";
+import { SpriteSheetAnimator, loadSprite, loadSprites } from "./Engine/Animator.js";
 import { Camera, TileManager, Map } from "./Engine/Map.js";
 import BasicMovement from "./Engine/miscComponents.js";
 import Scene from "./Engine/Scene.js"
@@ -10,13 +10,14 @@ import { Menu, MenuComponent } from './Engine/Menu.js'
 import { FadeTrasitionEffect, Painel } from './Engine/UiComponents.js'
 import Inventario from "./Scripts/Inventario.js";
 import Vida from './Scripts/Vida.js';
+
 /**
     Essa e o script mãe, sem ele nada e executado
     Esse script e chamado para a insersão de GameObjects, Components e entre outros
     
     Sua utilização e obrigadorio 
 */
-
+/***/
 const game = new Game();
 
 let center = game.center({ x: 0, y: 0, w: 100, h: 100 });
@@ -25,7 +26,7 @@ let player = new Player(center.x, center.y, 100, 100);
 player.add_component("spriteanimator", new SpriteSheetAnimator(4, 3));
 player.get("spriteanimator").assoc_animations(["idle", "back", "left", "right"], [0, 1, 2, 3]);
 player.get("spriteanimator").set_current_animation("idle");
-let img_carregada = undefined;
+let img_carregada;
 
 const on_load_sprites = (img) => {
     player.get("spriteanimator").set_spritesheet(img);
@@ -66,7 +67,7 @@ const treeManager = new TileManager();
 const mapa = new Map(mapMatrix, tileManager, player.w);
 
 const genTree = (imglist) => {
-    treeManager.set(1, new Tile(imglist["Img/tree/tree1.png"], "tree"));
+    treeManager.set(1, new Tile(imglist["Img/tree/tree0.png"], "tree"));
     treeManager.set(7, new Tile(imglist["Img/tree/palmtree.png"], "palmtree"));
     tree.generateMap();
 }
@@ -80,7 +81,7 @@ const genMap = (imglist) => {
 const tree = new Map(treeMatrix, treeManager, player.w);
 
 loadSprites(genMap, "Img/sand/sand.png", "Img/grass/grama.jpg", "Img/water/water1.jpg");
-loadSprites(genTree, "Img/tree/tree1.png", "Img/tree/palmtree.png");
+loadSprites(genTree, "Img/tree/tree0.png", "Img/tree/palmtree.png");
 
 const camera = new Camera(300, 300, player);
 
@@ -92,6 +93,7 @@ game.create_scene("Jogo", new Scene(
 let bgImg = new Image(innerWidth, innerHeight)
 bgImg.src = "./Img/bg/Background1.jpg"
 let painel1 = new Painel(0, 0, innerWidth, innerHeight, { backgroundImg: bgImg })
+
 game.create_scene("LoadMenu1", new Menu(painel1))
 game.add_component("camera", camera);
 game.add_entity('Jogo', player);
@@ -105,7 +107,7 @@ game.get('fade').onFadeEnd(() => {
     ambiente.Play()
     game.add_component('Ui', new MenuComponent(game.canvas))
     game.get('Ui').add_component('inv', new Inventario(15, 25, 45, 45, 5, 5))
-    game.get('Ui').add_component('vida', new Vida(5, 25, 45, 45, 5, 7, 10))
+    game.get('Ui').add_component('vida', new Vida(5, 25, 45, 45, 5, 10, 10))
     setTimeout(() => {
         game.get('fade').remove()
     }, 100)

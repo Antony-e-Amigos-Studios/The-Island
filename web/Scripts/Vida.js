@@ -9,7 +9,6 @@ export default class Vida extends Ui {
         this.margin = margin
         if(!Number.isInteger(maxVida / 2)){
             throw new Error('The maximum amount of life has to be even, maxlife: ' + maxVida / 2)
-            return;
         }
         this.maxVida = maxVida / 2
 
