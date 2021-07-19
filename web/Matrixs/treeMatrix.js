@@ -1,3 +1,8 @@
+import { Map } from "../Engine/Map.js"
+import TileManager from "../Engine/TileManager.js"
+import Tile from "../Engine/Tile.js"
+import { loadSprites } from "../Engine/Animator.js"
+
 let tree = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -33,4 +38,19 @@ for (let i = 3; i < tree.length; i++) {
     }
 }
 
-export default tree
+function make_tree(tilesize) {
+  const treeManager = new TileManager();
+  const tree_map = new Map(tree, treeManager, tilesize);
+
+  const genTree = (imglist) => {
+      treeManager.set(1, new Tile(imglist["Img/tree/tree0.png"], "tree"));
+      treeManager.set(7, new Tile(imglist["Img/tree/palmtree.png"], "palmtree"));
+      tree_map.generateMap();
+  }
+
+  loadSprites(genTree, "Img/tree/tree0.png", "Img/tree/palmtree.png");
+
+  return tree_map
+}
+
+export default make_tree

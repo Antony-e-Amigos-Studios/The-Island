@@ -1,5 +1,6 @@
 export default class Scene {
     constructor(...generatedMaps) {
+        // this.entitys
         this.layers = [...generatedMaps];
         this.promises = {}
     }

@@ -1,3 +1,4 @@
+import { loadSprites } from '../Engine/Animator.js'
 import { Ui } from '../Engine/UiComponents.js'
 
 export default class Inventario extends Ui {
@@ -8,16 +9,18 @@ export default class Inventario extends Ui {
         this.img_w = img_w
         this.img_h = img_h
         this.margin = margin
-        this.img1 = new Image(img_w, img_h)
-        this.img1.src = './Img/icones/Ui/Inventario1.png'
-        this.img2 = new Image(img_w, img_h)
-        this.img2.src = './Img/icones/Ui/Inventario2.png'
+        this.img1src = './Img/icones/UI/Inventario1.png'
+        this.img2src = './Img/icones/UI/Inventario2.png'
+
+        loadSprites((imgs) => {
+            this.img1 = imgs[this.img1src];
+            this.img2 = imgs[this.img2src];
+        }, this.img1src, this.img2src);
+
         this.slots = new Array(slots)
         this.slotSelected = 0
-        this.clicked = false
         this.keyPresed = false
-        this.mousex = 0
-        this.mousey = 0
+        this.mouse = {x: 0, y:0, clicked: false}
         this.key = null
         this.updateSlots()
         this.slotEvent()
@@ -26,15 +29,15 @@ export default class Inventario extends Ui {
 
     update(ctx) {
         for (let i = 0; i < this.slots.length; i++) {
-            if (this.slots[i] == 0) {
+            if (this.slots[i] == 0 && this.img1) {
                 ctx.drawImage(this.img1, (i * (this.img_w + this.margin)) + this.x, this.y, this.img_w, this.img_h)
-            } else {
+            } else if (this.img2) {
                 ctx.drawImage(this.img2, (i * (this.img_w + this.margin)) + this.x - this.slotSelectedSize/2, this.y - this.slotSelectedSize/2, this.img_w + this.slotSelectedSize, this.img_h + this.slotSelectedSize)
             }
-            if (this.clicked) {
+            if (this.mouse.click) {
                 let x = (i * (this.img_w + this.margin)) + this.x
                 let y = this.y
-                if (this.mousex > x && this.mousex < x + this.img_w && this.mousey > y && this.mousey < y + this.img_h) {
+                if (this.mouse.x > x && this.mouse.x < x + this.img_w && this.mouse.y > y && this.mouse.y < y + this.img_h) {
                     this.slotSelected = i
                     this.updateSlots()
                 }
@@ -61,15 +64,15 @@ export default class Inventario extends Ui {
 
     slotEvent() {
         addEventListener('mousedown', e => {
-            this.clicked = true
-            this.mousex = e.clientX
-            this.mousey = e.clientY
+            this.mouse.click = true
+            this.mouse.x = e.clientX
+            this.mouse.y = e.clientY
         })
 
         addEventListener('mouseup', () => {
-            this.clicked = false
-            this.mousex = 0
-            this.mousey = 0
+            this.mouse.click = false
+            this.mouse.x = 0
+            this.mouse.y
         })
 
         addEventListener('keydown', e => {

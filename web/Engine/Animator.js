@@ -1,18 +1,10 @@
 import Component from "./Component.js"
 
-let promises = []
 class Sprite {
     constructor(imgsrc, onload) {
         let img = new Image();
-        this.onload = new Promise( (resolve) => {
-            img.onload = () => {
-                onload(img)
-                resolve()
-            };
-        })
-        // this.onload = new Promise((resolve, reject) => {})
+        img.onload = () => {onload(img)};
         img.src = imgsrc;
-        promises.push(this.onload)
     }
 }
 
@@ -32,19 +24,9 @@ function loadSprites(onload, ...srcs) {
     });
 }
 
-function onLoadAllSprites() {
-    return Promise.all(promises)
-}
-
 function loadSprite(src, onload) { //então aonde q vc passa todas as img?
     let img = new Image();
-    let promise = new Promise((resolve) => {
-        img.onload = () => {
-            onload(img)
-            resolve()
-        };
-    })
-    promises.push(promise)
+    img.onload = () => {onload(img)};
     img.src = src;
 }
 
@@ -214,4 +196,4 @@ class SpriteSheetAnimator extends Animator {
     }
 }
 
-export { Animator, SpriteSheetAnimator, Sprite, loadSprite, loadSprites, onLoadAllSprites };
+export { Animator, SpriteSheetAnimator, Sprite, loadSprite, loadSprites };

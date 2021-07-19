@@ -1,3 +1,4 @@
+import { loadSprites } from '../Engine/Animator.js'
 import { Ui } from '../Engine/UiComponents.js'
 
 export default class Vida extends Ui {
@@ -12,12 +13,15 @@ export default class Vida extends Ui {
         }
         this.maxVida = maxVida / 2
 
-        this.img1 = new Image(img_w, img_h)
-        this.img1.src = './Img/icones/Ui/Vida1.png'
-        this.img2 = new Image(img_w, img_h)
-        this.img2.src = './Img/icones/Ui/Vida0.png'
-        this.img3 = new Image(img_w, img_h)
-        this.img3.src = './Img/icones/Ui/Vida2.png'
+        this.img1src = './Img/icones/UI/Vida1.png'
+        this.img2src = './Img/icones/UI/Vida0.png'
+        this.img3src = './Img/icones/UI/Vida2.png'
+
+        loadSprites((imglist) => {
+            this.img1 = imglist[this.img1src]
+            this.img2 = imglist[this.img2src]
+            this.img3 = imglist[this.img3src]
+        }, this.img1src, this.img2src, this.img3src);
 
         this.updateHealth()
     }
@@ -38,11 +42,11 @@ export default class Vida extends Ui {
 
     update(ctx){
         for(let i in this.vidaArr){
-            if(this.vidaArr[i] == 1){
+            if(this.vidaArr[i] == 1 && this.img1){
                 ctx.drawImage(this.img1, this.w - ((i+1) * this.margin + this.x) - this.img_w, this.y, this.img_w, this.img_h)
-            }else if(this.vidaArr[i] == 0){
+            }else if(this.vidaArr[i] == 0 && this.img2){
                 ctx.drawImage(this.img2, this.w - ((i+1) * this.margin + this.x) - this.img_w, this.y, this.img_w, this.img_h)
-            }else if(this.vidaArr[i] == 2){
+            }else if(this.vidaArr[i] == 2 && this.img3){
                 ctx.drawImage(this.img3, this.w - ((i+1) * this.margin + this.x) - this.img_w, this.y, this.img_w, this.img_h)
             }
         }

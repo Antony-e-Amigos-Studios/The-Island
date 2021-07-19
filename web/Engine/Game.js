@@ -24,7 +24,6 @@ export default class Game extends NonEntityGameObject {
         this.canvas.width = this.width;
         this.canvas.height = this.height;
         this.canvas.onload = () => {console.log('Opa')}
-        // this.ctx
     }
 
     draw(ctx) {
@@ -72,15 +71,17 @@ export default class Game extends NonEntityGameObject {
             }
         }
 
-        this.ctx.font = "15px monospace";
-        this.ctx.fillStyle = "rgb(255,255,255)";
-        this.ctx.fillText(this.text,10,100);
+        // this.ctx.font = "15px monospace";
+        // this.ctx.fillStyle = "rgb(255,255,255)";
+        // this.ctx.fillText(this.text,10,100);
 
         requestAnimationFrame(this.gameLoop);
     }
 
     add_entity(sceneName, entity) {
-        this.entities[sceneName] = {entity: []}
+        if (!this.entities[sceneName]) {
+            this.entities[sceneName] = {entity: []}
+        }
         this.entities[sceneName].entity.push(entity)
     }
 
@@ -116,9 +117,10 @@ export default class Game extends NonEntityGameObject {
         }
     }
 
-    center(dim) {
-        return {x:(this.width/2 - dim.w/2) + dim.x,
-                y:(this.height/2 - dim.h/2) + dim.y};
+    
+    center(obj_size) {
+        return {x:(this.width/2 - obj_size.w/2),
+                y:(this.height/2 - obj_size.h/2)};
     }
 
     main() {
