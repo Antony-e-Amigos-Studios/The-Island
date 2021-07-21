@@ -1,4 +1,8 @@
 /**
+ * Antony Game Engine
+ * @author Magoninho, Tsuki, Anonimo and Moises Madeira
+ * @copyright Copyright (c) 2021 Antony e Amigos Studios. All rights reserved
+ * wtf but the license is MIT
  */
 
 //Engine Imports
@@ -16,8 +20,8 @@ import Vida from './Scripts/Vida.js';
 import Inventario from "./Scripts/Inventario.js";
 
 //Matrix Imports
-import make_game from './Matrixs/mapMatrix.js'
-import make_tree from './Matrixs/treeMatrix.js'
+import make_game from './Matrixs/mapMatrix.js';
+import make_tree from './Matrixs/treeMatrix.js';
 
 //Criação do jogo
 const game = new Game();
@@ -37,11 +41,11 @@ game.create_scene("Jogo", new Scene(
     make_tree(player.w)
 ));
 
-let bgImg = new Image(innerWidth, innerHeight)
-bgImg.src = "./Img/bg/Background1.jpg"
-let painel1 = new Painel(0, 0, innerWidth, innerHeight, { backgroundImg: bgImg })
+let bgImg = new Image(innerWidth, innerHeight);
+bgImg.src = "./Img/bg/Background1.jpg";
+let painel1 = new Painel(0, 0, innerWidth, innerHeight, { backgroundImg: bgImg });
 
-game.create_scene("LoadMenu1", new Menu(painel1))
+game.create_scene("LoadMenu1", new Menu(painel1));
 game.add_component("camera", camera);
 game.add_entity('Jogo', player);
 
@@ -50,17 +54,17 @@ let ambiente = new Audio('Songs/ambient/ambient.mp3', 0.5, 'ambiente', { loop: t
 
 game.add_component('fade', new FadeTrasitionEffect(2, 4))
 game.get('fade').onFadeEnd(() => {
-    game.set_current_scene('Jogo')
-    musica1.Play()
-    ambiente.Play()
+    game.set_current_scene('Jogo');
+    musica1.Play();
+    ambiente.Play();
     // TODO: add UI components to scene instead of on game
-    game.add_component('Ui', new MenuComponent(game.canvas))
-    game.get('Ui').add_component('inv', new Inventario(15, 25, 45, 45, 5, 5))
-    game.get('Ui').add_component('vida', new Vida(5, 25, 45, 45, 5, 10, 10))
+    game.add_component('Ui', new MenuComponent(game.canvas));
+    game.get('Ui').add_component('inv', new Inventario(15, 25, 45, 45, 5, 5));
+    game.get('Ui').add_component('vida', new Vida(5, 25, 45, 45, 5, 10, 10));
     setTimeout(() => {
-        game.get('fade').remove()
+        game.get('fade').remove();
     }, 100)
-}, 2)
-game.get('fade').start()
+}, 2);
+game.get('fade').start();
 game.set_current_scene("LoadMenu1");
 game.main();

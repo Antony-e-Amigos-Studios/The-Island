@@ -8,7 +8,7 @@ class Ui {
         this.components = {}
     }
 
-    addComponent(name, compoonent) {
+    addComponent(name, compoonent) { // q porra é essa
         this.components[name] = compoonent
     }
 
@@ -32,40 +32,40 @@ class UiComponents {
 
 class Painel extends Ui {
     constructor(x, y, w, h, options = {}) {
-        super(x, y, w, h, options)
-        this.options = options
-        this.elements = {}
+        super(x, y, w, h, options);
+        this.options = options;
+        this.elements = {};
     }
 
     addElement(name, element){
-        this.elements[name] = element
+        this.elements[name] = element;
     }
 
     update(ctx) {
         if (this.options.backgroundImg) {
-            ctx.drawImage(this.options.backgroundImg, this.x, this.y, this.w, this.h)
+            ctx.drawImage(this.options.backgroundImg, this.x, this.y, this.w, this.h);
         }
         for (let i in this.elements) {
-            let elemento = this.elements[i]
-            elemento.x += this.x
-            elemento.y += this.y
-            elemento.update(ctx)
-            elemento.updateComponents(ctx)
+            let elemento = this.elements[i];
+            elemento.x += this.x;
+            elemento.y += this.y;
+            elemento.update(ctx);
+            elemento.updateComponents(ctx);
         }
-        this.updateComponents(ctx)
+        this.updateComponents(ctx);
     }
 }
 
 class Effect extends UiComponents {
     constructor() {
-        super()
-        this.Effects = {}
-        this.canvas = document.createElement('canvas')
-        this.ctx = this.canvas.getContext('2d')
-        this.canvas.height = innerHeight
-        this.canvas.width = innerWidth
-        this.canvas.className = 'subcanvas effect'
-        document.body.append(this.canvas)
+        super();
+        this.Effects = {};
+        this.canvas = document.createElement('canvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.canvas.height = innerHeight;
+        this.canvas.width = innerWidth;
+        this.canvas.className = 'subcanvas effect';
+        document.body.append(this.canvas);
     }
 
     addEffect(effect) {

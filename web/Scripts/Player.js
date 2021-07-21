@@ -29,7 +29,7 @@ export default class Player extends GameObject {
         this.get("spriteanimator").set_velocity(10);
         this.get("spriteanimator").play();
         this.add_component('movement', new BasicMovement(this, 4, ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"]))
-        this.add_component('ysort', new Ysort(this, game))
+        // this.add_component('audio', new Audio(this, game))
 
         this.get("audioplayer").on_stop_callback(() => {
             const mov = this.get("movement");
