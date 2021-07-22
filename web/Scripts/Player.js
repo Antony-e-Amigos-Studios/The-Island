@@ -4,7 +4,7 @@ import { BasicMovement } from "../Engine/miscComponents.js";
 import { Audio, AudioPlayer } from '../Engine/Audio.js'
 
 export default class Player extends GameObject {
-    constructor(x, y, w, h, game) {
+    constructor(x, y, w, h) {
         super(x, y, w, h);
 
         this.add_component("spriteanimator", new SpriteSheetAnimator(4, 3));

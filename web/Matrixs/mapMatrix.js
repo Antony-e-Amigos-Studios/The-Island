@@ -3,7 +3,7 @@ import TileManager from "../Engine/TileManager.js"
 import Tile from "../Engine/Tile.js"
 import { loadSprites } from "../Engine/Animator.js"
 
-let map = [
+const mapaArray = [
     [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
     [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
     [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
@@ -30,11 +30,11 @@ let map = [
     [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
 ];
 
-function make_game (tilesize){
+let make_game = function (tilesize){
     const tileManager = new TileManager();
     
-    const ovw_map = new Map(map, tileManager, tilesize);
-    
+    const ovw_map = new Map(mapaArray, tileManager, tilesize);
+
     const genMap = (imglist) => {
         tileManager.set(0, new Tile(imglist["Img/grass/grama.jpg"], "grama"));
         tileManager.set(1, new Tile(imglist["Img/sand/sand.png"], "crate"));
@@ -46,4 +46,8 @@ function make_game (tilesize){
     return ovw_map
 }
 
-export default make_game
+function getMap() {
+    return mapaArray
+}
+
+export { make_game, getMap }

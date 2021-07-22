@@ -20,8 +20,8 @@ import Vida from './Scripts/Vida.js';
 import Inventario from "./Scripts/Inventario.js";
 
 //Matrix Imports
-import make_game from './Matrixs/mapMatrix.js';
-import make_tree from './Matrixs/treeMatrix.js';
+import { make_game, getMap } from './Matrixs/mapMatrix.js';
+import make_tree from './Matrixs/Mapa.js';
 
 //Criação do jogo
 const game = new Game();
@@ -36,9 +36,10 @@ loadSprite("Img/water/water1.jpg", img => game.setbg(img));
 
 const camera = new Camera(300, 300, player);
 
+// console.log(getMap())
 game.create_scene("Jogo", new Scene(
     make_game(player.w),
-    make_tree(player.w)
+    make_tree(player.w) // o pro é aqui
 ));
 
 let bgImg = new Image(innerWidth, innerHeight);
@@ -54,7 +55,7 @@ let ambiente = new Audio('Songs/ambient/ambient.mp3', 0.5, 'ambiente', { loop: t
 
 game.add_component('fade', new FadeTrasitionEffect(2, 4))
 game.get('fade').onFadeEnd(() => {
-    game.set_current_scene('Jogo');
+    // game.set_current_scene('Jogo');
     musica1.Play();
     ambiente.Play();
     // TODO: add UI components to scene instead of on game
@@ -66,5 +67,5 @@ game.get('fade').onFadeEnd(() => {
     }, 100)
 }, 2);
 game.get('fade').start();
-game.set_current_scene("LoadMenu1");
+game.set_current_scene("Jogo");
 game.main();
