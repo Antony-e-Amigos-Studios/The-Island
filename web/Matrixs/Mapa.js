@@ -10,34 +10,7 @@
 
 */
 
-let mapabase = [
-  [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-  [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-  [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-  [3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3],
-  [3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3],
-  [3, 3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3, 3, 3],
-  [3, 3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 3, 3, 3],
-  [3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 3, 3],
-  [3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 3, 3],
-  [3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 3, 3],
-  [3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 3, 3],
-  [3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 3, 3],
-  [3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 3, 3],
-  [3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 3, 3],
-  [3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 3, 3],
-  [3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 3, 3],
-  [3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 3, 3],
-  [3, 3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 3, 3, 3],
-  [3, 3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3, 3, 3],
-  [3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3],
-  [3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3],
-  [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-  [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-  [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-];
-
-// let dimensoesMapa = { altura: mapaBase.length, largura: mapaBase[0].length };  // dimensões do mapa
+import mapabase from './BasicMatrix.js'
 
 // 3 é mar    | no mar não tem árvore
 // 1 é areia  | 10 é coqueiros
@@ -56,7 +29,7 @@ import { loadSprites } from "../Engine/Animator.js"
 function geraVerdadeiroOuFalsoAleatorio(frequencia) {
   return !Boolean(Math.floor(Math.random() * frequencia));
 }
-/** 
+/*
   *temos um mapa com números e queremos adicionar, por exemplo, coqueiros (7) somente na área de praia (1).
   *argumentos:
   *mapa -> array bidimensional contendo números
@@ -67,11 +40,11 @@ function geraVerdadeiroOuFalsoAleatorio(frequencia) {
   *linhaFinal (opcional) -> [veja acima]
 */
 
-let adicionaCamada = (mapa, numeroAAdicionarEmCima, numeroAColocar, numerosAZerar = []) => {
+let adicionaCamada = (mapa, numeroASubistituir, numeroAColocar, numerosAZerar = []) => {
 
   mapa.forEach(function (linha, indiceLinha) {
     linha.forEach(function (numero, indiceColuna) {
-      if (numero == numeroAAdicionarEmCima) {
+      if (numero == numeroASubistituir) {
         if (geraVerdadeiroOuFalsoAleatorio(3)) {
           mapa[indiceLinha][indiceColuna] = numeroAColocar
         }
@@ -85,9 +58,9 @@ let adicionaCamada = (mapa, numeroAAdicionarEmCima, numeroAColocar, numerosAZera
   return mapa;
 }
 
-function createTree(mapaBase = mapabase) {
-  let tree = adicionaCamada(mapaBase, 2, 1)
-  return tree = adicionaCamada(mapaBase, 1, 0);
+function createTree(mapaBase = new mapabase().get()) {
+  let tree = adicionaCamada(mapaBase, 0, 11)
+  return adicionaCamada(tree, 1, 10);
 }
 
 function make_tree(tilesize) {
@@ -95,8 +68,8 @@ function make_tree(tilesize) {
   const tree_map = new Map(createTree(), treeManager, tilesize);
 
   const genTree = (imglist) => {
-    treeManager.set(2, new Tile(imglist["Img/tree/tree0.png"], "tree"));
-    treeManager.set(1, new Tile(imglist["Img/tree/palmtree.png"], "palmtree"));
+    treeManager.set(11, new Tile(imglist["Img/tree/tree0.png"], "tree"));
+    treeManager.set(10, new Tile(imglist["Img/tree/palmtree.png"], "palmtree"));
     tree_map.generateMap();
   }
 

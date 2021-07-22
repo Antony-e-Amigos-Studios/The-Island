@@ -20,7 +20,7 @@ import Vida from './Scripts/Vida.js';
 import Inventario from "./Scripts/Inventario.js";
 
 //Matrix Imports
-import { make_game, getMap } from './Matrixs/mapMatrix.js';
+import make_game from './Matrixs/mapMatrix.js';
 import make_tree from './Matrixs/Mapa.js';
 
 //Criação do jogo
@@ -39,7 +39,7 @@ const camera = new Camera(300, 300, player);
 // console.log(getMap())
 game.create_scene("Jogo", new Scene(
     make_game(player.w),
-    make_tree(player.w) // o pro é aqui
+    make_tree(player.w)
 ));
 
 let bgImg = new Image(innerWidth, innerHeight);

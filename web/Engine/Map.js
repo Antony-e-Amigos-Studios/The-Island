@@ -1,21 +1,20 @@
 /**
  * gustavo é furry
  */
-import Component from "./Component.js"
+// import Component from "./Component.js"
 import Tile from "./Tile.js"
-import TileManager from "./TileManager.js"
-import Camera from "./Camera.js"
+// import TileManager from "./TileManager.js"
+// import Camera from "./Camera.js"
 
 class Map {
   constructor(map, tileManager, tilesize = 64) {
-    this.map = map;
+    this.map = map
     this.w = map[0].length;
     this.h = map.length;
     this.tileManager = tileManager;
     this.tilesize = tilesize;
     this.has_camera = true;
     this.entitys = []
-    this.game
   }
 
   LoadGame(game) {
@@ -24,11 +23,8 @@ class Map {
 
   get_limits() {
     return { x: this.tilesize * this.w, y: this.tilesize * this.h };
-  } // ta funcionando sim olha
-  // tesuke ainda nao ta funcionando a parte de baixo
-  // recarrega pq ta funcionando de boa
-  // boa gososa se liga em como eu consertei
-  // merece um push
+  }
+
   generateMap() {
     for (let i = 0; i < this.h; i++) {
       for (let j = 0; j < this.w; j++) {

@@ -1,14 +1,12 @@
 export default class Scene {
     constructor(...generatedMaps) {
         // this.entitys
-        this.layers = [...generatedMaps];
-        this.promises = {}
+        this.layers = generatedMaps;
     }
 
     update(ctx) {
-        for (let i = 0; i < this.layers.length; i++) {
-            this.layers[i].update(ctx);
+        for (let layer of this.layers) {
+            layer.update(ctx);
         }
     }
-
 }
